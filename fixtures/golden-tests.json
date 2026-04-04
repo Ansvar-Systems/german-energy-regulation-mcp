@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "mcp_name": "German Energy Regulation MCP",
+  "tests": [
+    {
+      "id": "de-energy-001",
+      "category": "search",
+      "description": "Search regulations for 'Energiewirtschaftsgesetz'",
+      "tool": "de_energy_search_regulations",
+      "input": { "query": "Energiewirtschaftsgesetz" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    },
+    {
+      "id": "de-energy-002",
+      "category": "data_retrieval",
+      "description": "Get regulation by reference (EnWG)",
+      "tool": "de_energy_get_regulation",
+      "input": { "reference": "EnWG" },
+      "assertions": { "result_not_empty": true }
+    },
+    {
+      "id": "de-energy-003",
+      "category": "search",
+      "description": "Search grid codes for 'Netzanschluss'",
+      "tool": "de_energy_search_grid_codes",
+      "input": { "query": "Netzanschluss" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    },
+    {
+      "id": "de-energy-004",
+      "category": "data_retrieval",
+      "description": "Get grid code by document ID",
+      "tool": "de_energy_get_grid_code",
+      "input": { "document_id": 2 },
+      "assertions": { "result_not_empty": true }
+    },
+    {
+      "id": "de-energy-005",
+      "category": "search",
+      "description": "Search decisions for 'Netzentgelt'",
+      "tool": "de_energy_search_decisions",
+      "input": { "query": "Netzentgelt" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    },
+    {
+      "id": "de-energy-006",
+      "category": "meta_tool",
+      "description": "About tool returns server metadata",
+      "tool": "de_energy_about",
+      "input": {},
+      "assertions": { "result_not_empty": true }
+    },
+    {
+      "id": "de-energy-007",
+      "category": "negative_test",
+      "description": "Non-existent regulation reference handles gracefully",
+      "tool": "de_energy_get_regulation",
+      "input": { "reference": "NONEXISTENT-REF-999" },
+      "assertions": { "handles_gracefully": true }
+    },
+    {
+      "id": "de-energy-008",
+      "category": "negative_test",
+      "description": "Non-existent grid code ID handles gracefully",
+      "tool": "de_energy_get_grid_code",
+      "input": { "document_id": 99999 },
+      "assertions": { "handles_gracefully": true }
+    },
+    {
+      "id": "de-energy-009",
+      "category": "search",
+      "description": "Search regulations with regulator filter",
+      "tool": "de_energy_search_regulations",
+      "input": { "query": "Netzentgelt", "regulator": "bnetza" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    },
+    {
+      "id": "de-energy-010",
+      "category": "search",
+      "description": "Search regulations with type filter",
+      "tool": "de_energy_search_regulations",
+      "input": { "query": "Energie", "type": "gesetz" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    },
+    {
+      "id": "de-energy-011",
+      "category": "search",
+      "description": "Search grid codes by code_type",
+      "tool": "de_energy_search_grid_codes",
+      "input": { "query": "Redispatch", "code_type": "market_regulation" },
+      "assertions": { "result_not_empty": true }
+    },
+    {
+      "id": "de-energy-012",
+      "category": "cross_reference",
+      "description": "Search decisions for revenue cap methodology",
+      "tool": "de_energy_search_decisions",
+      "input": { "query": "Erlosobergrenze", "decision_type": "revenue_cap" },
+      "assertions": { "result_not_empty": true, "min_results": 1 }
+    }
+  ]
+}

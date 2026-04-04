@@ -1,0 +1,93 @@
+# sources.yml -- Data provenance metadata
+# Reference: docs/mcp-infrastructure-blueprint.md
+
+schema_version: "1.0"
+mcp_name: "German Energy Regulation MCP"
+category: "domain_intelligence"
+jurisdiction: "Germany"
+
+sources:
+  - name: "Bundesnetzagentur (BNetzA)"
+    authority: "Bundesnetzagentur"
+    official_url: "https://bundesnetzagentur.de"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Public Domain (German government publications)"
+      url: "https://bundesnetzagentur.de"
+      summary: "German regulatory decisions and publications are public records"
+    coverage:
+      scope: "Beschlusskammer decisions, Festlegungen, Anreizregulierung, Netzentgelte, market rules"
+      item_count: 0
+    languages:
+      - "de"
+
+  - name: "German TSOs (50Hertz, Amprion, TenneT DE, TransnetBW)"
+    authority: "German TSOs"
+    official_url: "https://netztransparenz.de"
+    retrieval_method: "MANUAL_CURATION"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Public Domain (regulatory publications)"
+      url: "https://netztransparenz.de"
+      summary: "Grid codes and technical regulations are public"
+    coverage:
+      scope: "VDE-AR-N grid codes, Redispatch 2.0 rules, Netzentwicklungsplan, grid connection requirements"
+      item_count: 0
+    languages:
+      - "de"
+
+  - name: "Bundesministerium fur Wirtschaft und Klimaschutz (BMWK)"
+    authority: "BMWK"
+    official_url: "https://bmwk.de"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Public Domain (German government publications)"
+      url: "https://bmwk.de"
+      summary: "German federal ministry publications are freely available"
+    coverage:
+      scope: "EnWG, EEG, KWKG, Energiewende policy, Verordnungen, Leitfaden"
+      item_count: 0
+    languages:
+      - "de"
+
+  - name: "Bundesamt fur die Sicherheit der nuklearen Entsorgung (BfE)"
+    authority: "BfE"
+    official_url: "https://bfe.bund.de"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Public Domain (German government publications)"
+      url: "https://bfe.bund.de"
+      summary: "German nuclear safety publications are public records"
+    coverage:
+      scope: "Nuclear safety regulations, Endlagersuche, Standortauswahlgesetz"
+      item_count: 0
+    languages:
+      - "de"
+
+  - name: "Gesetze im Internet"
+    authority: "Bundesministerium der Justiz"
+    official_url: "https://gesetze-im-internet.de"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Public Domain (German federal legislation)"
+      url: "https://gesetze-im-internet.de"
+      summary: "Official publication of German federal legislation"
+    coverage:
+      scope: "EnWG, EEG, KWKG, ARegV, StromNEV, GasNEV, StromNZV, GasNZV and related energy legislation"
+      item_count: 0
+    languages:
+      - "de"
