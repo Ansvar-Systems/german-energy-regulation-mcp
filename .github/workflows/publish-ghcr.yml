@@ -168,7 +168,15 @@ jobs:
       - name: Set image name from package.json
         id: meta
         run: |
-          NAME=$(node -e "console.log(require('./package.json').name.replace('@ansvar/', ''))")
+          # Strip any leading @scope/ prefix so `@ansvar/foo` and
+          # `@ansvar-systems/foo` (and any future scope) both yield `foo`.
+          # npm distribution is decommissioned (ADR-021), so the scope is
+          # arbitrary. The previous hard-coded `@ansvar/` replace broke on
+          # the 2026-05-14 swedish-civil-protection canary which had
+          # `@ansvar-systems/`, producing the invalid GHCR tag
+          # `ghcr.io/ansvar-systems/@ansvar-systems/foo:latest`. The regex
+          # form fixes the bug class fleet-wide.
+          NAME=$(node -e "console.log(require('./package.json').name.replace(/^@[^/]+\//, ''))")
           VERSION=$(node -e "console.log(require('./package.json').version)")
           echo "image_name=${NAME}" >> $GITHUB_OUTPUT
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
