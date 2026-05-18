@@ -2,7 +2,7 @@
   "name": "@ansvar/german-energy-regulation-mcp",
   "version": "0.1.0",
   "mcpName": "eu.ansvar/german-energy-regulation-mcp",
-  "description": "German energy regulation MCP \u2014 Bundesnetzagentur decisions, TSO grid codes (VDE-AR-N), BMWK Energiewende policy, BfE nuclear safety",
+  "description": "German energy regulation MCP — Bundesnetzagentur decisions, TSO grid codes (VDE-AR-N), BMWK Energiewende policy, BfE nuclear safety",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
